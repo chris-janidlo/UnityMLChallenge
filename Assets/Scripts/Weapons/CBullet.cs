@@ -17,9 +17,7 @@ public class CBullet : MonoBehaviour {
 	}
 
 	protected virtual void OnCollisionEnter (Collision collision) {
-		var health = collision.gameObject.GetComponent<CHealth>();
-		if (health != null)
-			health.Damage(Damage);
+		CHealth.TryToDamage(collision.gameObject, Damage);
 		Destroy(gameObject);
 	}
 

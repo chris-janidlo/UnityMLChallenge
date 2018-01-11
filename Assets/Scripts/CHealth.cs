@@ -19,4 +19,13 @@ public class CHealth : MonoBehaviour {
 		}
 	}
 
+	// tries to deal damage to the game object by finding a CHealth. if successful, returns true; if not, returns false
+	public static bool TryToDamage (GameObject target, float damage) {
+		CHealth comp = target.GetComponent<CHealth>();
+		if (comp == null)
+			return false;
+		comp.Damage(damage);
+		return true;
+	}
+
 }
