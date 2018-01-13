@@ -37,7 +37,7 @@ public class CExplosive : MonoBehaviour {
 			var hit = hits[i];
 			float distance = Vector3.Distance(hit.transform.position, transform.position);
 			float damage = SplashDamage - Mathf.Max(0, Falloff * (distance - SplashRadius));
-			CHealth.TryToDamage(hit.gameObject, damage);
+			hit.GetComponent<CHealth>()?.Damage(damage);
 		}
 		Debug.Log("EXPLOSION ANIMATION GOES HERE");
 		Destroy(gameObject);

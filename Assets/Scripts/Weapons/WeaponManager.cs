@@ -38,8 +38,7 @@ public class WeaponManager : MonoBehaviour {
 	}
 
 	public void Reload() {
-		if (ActiveWeaponMagazine != null)
-			ActiveWeaponMagazine.Reload();
+		ActiveWeaponMagazine?.Reload();
 	}
 
 	public void SwapWeapon(int slot) {

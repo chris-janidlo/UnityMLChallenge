@@ -10,12 +10,10 @@ public class CShooty : MonoBehaviour {
 	public float SwapTime;
 	
 	private CMagazine magazine;
-	private bool hasMagazine;
 	private float shootTimer;
 
 	protected virtual void Start () {
 		magazine = GetComponent<CMagazine>();
-		hasMagazine = magazine != null;
 	}
 
 	protected virtual void FixedUpdate() {
@@ -26,7 +24,7 @@ public class CShooty : MonoBehaviour {
 		if (shootTimer <= 0) {
 			shootTimer = ShotDelay;
 
-			if (hasMagazine && magazine.Ammo <= 0 || magazine.Reloading) {
+			if (magazine?.Ammo <= 0 || (magazine?.Reloading == true)) {
 				Debug.Log("click");
 				return;
 			}
@@ -40,7 +38,7 @@ public class CShooty : MonoBehaviour {
 			else
 				b.Initialize(transform.forward.normalized);
 
-			if (hasMagazine)
+			if (magazine != null)
 				magazine.Ammo--;
 		}
 	}	
