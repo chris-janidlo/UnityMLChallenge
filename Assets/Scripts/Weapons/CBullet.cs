@@ -11,7 +11,7 @@ public class CBullet : MonoBehaviour {
 	protected Rigidbody rb;
 
 	// Use this for initialization
-	public virtual void Initialize(Vector3 direction) {
+	public virtual void Initialize (Vector3 direction) {
 		rb = GetComponent<Rigidbody>();
 		rb.velocity = direction * Speed;
 	}

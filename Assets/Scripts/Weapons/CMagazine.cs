@@ -25,11 +25,11 @@ public class CMagazine : MonoBehaviour {
 		Reloading = false;
 	}
 
-	public virtual void Reload() {
+	public virtual void Reload () {
 		StartCoroutine(reloadRoutine());
 	}
 
-	protected virtual IEnumerator reloadRoutine() {
+	protected virtual IEnumerator reloadRoutine () {
 		if (Reloading)
 			yield break;
 		Reloading = true;
