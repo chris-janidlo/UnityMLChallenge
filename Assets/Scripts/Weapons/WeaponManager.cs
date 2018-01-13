@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CGrenadeThrower))]
 public class WeaponManager : MonoBehaviour {
 
 	// guns and other weapons that use left click controls
 	public CShooty[] MainWeapons;
-	// special case slot for grenades
-	public CGrenade Grenade;
 	// place relative to player model's center to place weapons
 	public Vector3 WeaponLocation;
 
@@ -16,11 +15,13 @@ public class WeaponManager : MonoBehaviour {
 	public CMagazine ActiveWeaponMagazine { get; private set; }
 	public int ActiveWeaponSlot { get; private set; }
 	
+	private CGrenadeThrower grenade;
 	private int lastWeaponSlot = 1;
 	private bool swapping = false;
 
 	void Awake () {
 		ActiveWeaponSlot = 0;
+		grenade = GetComponent<CGrenadeThrower>();
 	}
 
 	void Start () {
@@ -33,7 +34,7 @@ public class WeaponManager : MonoBehaviour {
 	}
 
 	public void ThrowGrenade() {
-		Grenade.Throw();
+		grenade.Throw(transform.position, transform.forward);
 	}
 
 	public void Reload() {

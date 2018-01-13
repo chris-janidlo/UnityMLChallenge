@@ -123,6 +123,8 @@ GameObject:
   - component: {fileID: 89053830}
   - component: {fileID: 89053829}
   - component: {fileID: 89053831}
+  - component: {fileID: 89053833}
+  - component: {fileID: 89053832}
   m_Layer: 0
   m_Name: Agent
   m_TagString: Untagged
@@ -182,8 +184,34 @@ MonoBehaviour:
   MainWeapons:
   - {fileID: 114715001658194480, guid: 140e35cc0b29d4e22a2a158e4231a128, type: 2}
   - {fileID: 114306505073337888, guid: ce28a3231c21b44999190dff6ceaf052, type: 2}
-  Grenade: {fileID: 0}
   WeaponLocation: {x: 0.1, y: 0.8, z: 0.5}
+--- !u!114 &89053832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 89053828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe0df0b13f54d4fd8a25cade7d5bc586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &89053833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 89053828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 617e4a71a23264a8baccb6b3ef4a9d6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GrenadePrefab: {fileID: 54383126519405978, guid: e779e743f6ce941cd90b05358bb0ca71,
+    type: 2}
+  Cooldown: 5
+  ThrowForce: 2
+  ThrowOffsetAngle: {x: -40, y: 0, z: 0}
 --- !u!114 &228541772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -505,7 +533,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1943686398}
   - component: {fileID: 1943686397}
-  - component: {fileID: 1943686399}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -562,17 +589,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!114 &1943686399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1943686396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5963cd5b68eab4f148ba2a1654c00efb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1960166204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,7 +601,7 @@ MonoBehaviour:
   m_Name: (Clone)(Clone)
   m_EditorClassIdentifier: 
   broadcast: 1
-  brain: {fileID: 0}
+  brain: {fileID: 1678603161}
 --- !u!114 &2073453297
 MonoBehaviour:
   m_ObjectHideFlags: 0

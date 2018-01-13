@@ -5,7 +5,11 @@ using UnityEngine;
 public class CHealth : MonoBehaviour {
 
 	public float MaxHealth;
-	public virtual float Health { get; private set; }
+	[SerializeField] private float currentHealth;
+	public virtual float Health {
+		get { return currentHealth; }
+		private set { currentHealth = value; }
+	}
 
 	protected virtual void Awake () {
 		Health = MaxHealth;
