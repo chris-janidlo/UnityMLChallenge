@@ -4,14 +4,17 @@ using UnityEngine;
 
 [RequireComponent(typeof(WeaponManager))]
 [RequireComponent(typeof(CMovement))]
+[RequireComponent(typeof(CHealth))]
 public class BaseAgent : Agent {
 
 	private WeaponManager wm;
 	private CMovement movement;
+	private CHealth health;
 
 	public override void InitializeAgent () {
 		wm = GetComponent<WeaponManager>();
 		movement = GetComponent<CMovement>();
+		health = GetComponent<CHealth>();
 	}
 
 	public override List<float> CollectState () {

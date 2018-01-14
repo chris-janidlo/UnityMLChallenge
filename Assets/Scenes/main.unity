@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 89053835}
   - component: {fileID: 89053834}
   - component: {fileID: 89053832}
+  - component: {fileID: 89053836}
   m_Layer: 0
   m_Name: Agent
   m_TagString: Untagged
@@ -254,6 +255,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &89053836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 89053828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b425fe670f564f5994b813e50cbabd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 100
+  currentHealth: 0
 --- !u!1 &303148871
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,6 +471,7 @@ GameObject:
   - component: {fileID: 1129972317}
   - component: {fileID: 1129972316}
   - component: {fileID: 1129972315}
+  - component: {fileID: 1129972319}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -527,6 +542,19 @@ Transform:
   m_Father: {fileID: 89053830}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1129972319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1129972314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b425fe670f564f5994b813e50cbabd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 0
+  currentHealth: 0
 --- !u!1 &1257416296
 GameObject:
   m_ObjectHideFlags: 0
