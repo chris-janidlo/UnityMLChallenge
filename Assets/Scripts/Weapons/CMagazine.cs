@@ -17,7 +17,7 @@ public class CMagazine : MonoBehaviour {
 	public float ReloadTime;
 
 	public bool Reloading { get; private set; }
-	private float ammo;
+	[SerializeField] private float ammo;
 
 
 	protected virtual void Start () {
