@@ -61,7 +61,7 @@ public class WeaponManager : MonoBehaviour {
 
 	private void pullOutWeapon () {
 		Debug.Log("PUT WEAPON PULL ANIMATION HERE");
-		ActiveWeapon = Instantiate(MainWeapons[ActiveWeaponSlot], WeaponLocation, Quaternion.identity, Head);
+		ActiveWeapon = Instantiate(MainWeapons[ActiveWeaponSlot], Head.TransformPoint(WeaponLocation), Head.rotation, Head);
 		ActiveWeaponMagazine = ActiveWeapon.GetComponent<CMagazine>();
 	}
 
