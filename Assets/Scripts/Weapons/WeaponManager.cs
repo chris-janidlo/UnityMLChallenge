@@ -19,6 +19,8 @@ public class WeaponManager : MonoBehaviour {
 	public CShooty ActiveWeapon { get; private set; }
 	public CMagazine ActiveWeaponMagazine { get; private set; }
 	public int ActiveWeaponSlot { get; private set; }
+	public bool Swapping { get { return swapping; } }
+	public bool Reloading { get { return ActiveWeaponMagazine?.Reloading ?? false; } }
 	
 	private CGrenadeThrower grenade;
 	private Rigidbody rb;
