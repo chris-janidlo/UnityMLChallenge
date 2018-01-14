@@ -8,6 +8,8 @@ public class WeaponManager : MonoBehaviour {
 
 	// guns and other weapons that use left click controls
 	public CShooty[] MainWeapons;
+	// if true, reload automatically when out of ammo
+	public bool AutoReload;
 	// place relative to player model's center to place weapons
 	public Vector3 WeaponLocation;
 	// gun is instantiated here so that it moves with camera
@@ -34,8 +36,16 @@ public class WeaponManager : MonoBehaviour {
 	}
 
 	public void Shoot() {
-		if (!swapping)
-			ActiveWeapon.Shoot();
+		if (!swapping) {
+			if (ActiveWeaponMagazine == null || ActiveWeaponMagazine.Ammo > 0)
+				ActiveWeapon.Shoot();
+			else {
+				if (AutoReload)
+					Reload();
+				else
+					Debug.Log("CLICK");
+			}
+		}
 	}
 
 	public void ThrowGrenade() {
