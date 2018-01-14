@@ -21,6 +21,7 @@ public class WeaponManager : MonoBehaviour {
 	public int ActiveWeaponSlot { get; private set; }
 	
 	private CGrenadeThrower grenade;
+	private Rigidbody rb;
 	private int lastWeaponSlot = 1;
 	private bool swapping = false;
 
@@ -29,6 +30,7 @@ public class WeaponManager : MonoBehaviour {
 			throw new Exception("Head must be a child of this.transform");
 		ActiveWeaponSlot = 0;
 		grenade = GetComponent<CGrenadeThrower>();
+		rb = GetComponent<Rigidbody>();
 	}
 
 	void Start () {
@@ -50,7 +52,7 @@ public class WeaponManager : MonoBehaviour {
 
 	public void ThrowGrenade() {
 		Vector3 offset = new Vector3(0, 0, 0.6f);
-		grenade.Throw(Head, offset);
+		grenade.Throw(Head, offset, rb?.velocity);
 	}
 
 	public void Reload() {
