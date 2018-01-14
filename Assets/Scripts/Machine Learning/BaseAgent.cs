@@ -24,6 +24,7 @@ public class BaseAgent : Agent {
 		movement.Move(new Vector2(act[0], act[1]));
 		if (act[2] == 1)
 			movement.Jump();
+		movement.MoveEyes(new Vector2(act[3], act[4]));
 	}
 
 	public override void AgentReset () {

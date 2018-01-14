@@ -205,7 +205,9 @@ MonoBehaviour:
   MaxAirSpeed: 12
   GroundAcceleration: 100
   AirAcceleration: 20
-  MaxLookDelta: {x: 0, y: 0}
+  LookSensitivity: {x: 2, y: 1.8}
+  LookSmoothing: {x: 2, y: 2}
+  LookClamp: {x: 360, y: 180}
 --- !u!114 &89053833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -565,10 +567,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brainParameters:
     stateSize: 0
-    actionSize: 3
+    actionSize: 5
     memorySize: 0
     cameraResolutions: []
     actionDescriptions:
+    - 
+    - 
     - 
     - 
     - 
@@ -609,6 +613,18 @@ MonoBehaviour:
   - key: 32
     index: 2
     value: 1
+  - key: 273
+    index: 4
+    value: 1
+  - key: 275
+    index: 3
+    value: 1
+  - key: 274
+    index: 4
+    value: -1
+  - key: 276
+    index: 3
+    value: -1
   discretePlayerActions: []
   defaultAction: 0
   brain: {fileID: 1257416298}
