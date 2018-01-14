@@ -1,24 +1,55 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(WeaponManager))]
 [RequireComponent(typeof(CMovement))]
 [RequireComponent(typeof(CHealth))]
+[RequireComponent(typeof(CGrenadeThrower))]
 public class BaseAgent : Agent {
 
 	private WeaponManager wm;
 	private CMovement movement;
 	private CHealth health;
+	private CGrenadeThrower grenadeThrower;
 
 	public override void InitializeAgent () {
 		wm = GetComponent<WeaponManager>();
 		movement = GetComponent<CMovement>();
 		health = GetComponent<CHealth>();
+		grenadeThrower = GetComponent<CGrenadeThrower>();
 	}
 
+	// state map
+	//	0-2: world position
+	//		x,y,z in order
+	//	3-5: rotation
+	//		Euler angles, x,y,z in order
+	//	6: health
+	//	7: current weapon slot
+	//	8: current weapon ammo
+	//		-1 if infinite
+	//	9: weapon status
+	//		0: good to fire
+	//		1: reloading
+	//		2: swapping
+	//	10: grenade cooldown
+	//	11+: game states, other agents
+	//		unmapped
 	public override List<float> CollectState () {
-		List<float> state = new List<float>();
+		List<float> state = new List<float>(new float[] {
+			transform.position.x,
+			transform.position.y,
+			transform.position.z,
+			transform.rotation.eulerAngles.x,
+			transform.rotation.eulerAngles.y,
+			transform.rotation.eulerAngles.z,
+			health.Health,
+			wm.ActiveWeaponSlot,
+			wm.ActiveWeaponMagazine == null ? -1 : wm.ActiveWeaponMagazine.Ammo,
+			wm.Swapping ? 2 : (wm.Reloading ? 1 : 0),
+			grenadeThrower.CooldownTimer,
+		});
 
 		return state;
 	}

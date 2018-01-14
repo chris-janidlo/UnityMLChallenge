@@ -596,7 +596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brainParameters:
-    stateSize: 0
+    stateSize: 11
     actionSize: 9
     memorySize: 0
     cameraResolutions: []
