@@ -187,6 +187,7 @@ MonoBehaviour:
   - {fileID: 114715001658194480, guid: 140e35cc0b29d4e22a2a158e4231a128, type: 2}
   - {fileID: 114306505073337888, guid: ce28a3231c21b44999190dff6ceaf052, type: 2}
   WeaponLocation: {x: 0.1, y: 0.8, z: 0.5}
+  Head: {fileID: 1129972318}
 --- !u!114 &89053832
 MonoBehaviour:
   m_ObjectHideFlags: 0

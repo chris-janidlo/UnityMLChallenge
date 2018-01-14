@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,8 @@ public class WeaponManager : MonoBehaviour {
 	public CShooty[] MainWeapons;
 	// place relative to player model's center to place weapons
 	public Vector3 WeaponLocation;
+	// gun is instantiated here so that it moves with camera
+	public Transform Head;
 
 	// readonly states
 	public CShooty ActiveWeapon { get; private set; }
@@ -20,6 +23,8 @@ public class WeaponManager : MonoBehaviour {
 	private bool swapping = false;
 
 	void Awake () {
+		if (Head.parent != transform)
+			throw new Exception("Head must be a child of this.transform");
 		ActiveWeaponSlot = 0;
 		grenade = GetComponent<CGrenadeThrower>();
 	}
@@ -56,7 +61,7 @@ public class WeaponManager : MonoBehaviour {
 
 	private void pullOutWeapon () {
 		Debug.Log("PUT WEAPON PULL ANIMATION HERE");
-		ActiveWeapon = Instantiate(MainWeapons[ActiveWeaponSlot], WeaponLocation, Quaternion.identity, transform);
+		ActiveWeapon = Instantiate(MainWeapons[ActiveWeaponSlot], WeaponLocation, Quaternion.identity, Head);
 		ActiveWeaponMagazine = ActiveWeapon.GetComponent<CMagazine>();
 	}
 
