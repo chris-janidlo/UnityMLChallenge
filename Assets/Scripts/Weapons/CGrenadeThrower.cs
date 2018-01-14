@@ -10,7 +10,11 @@ public class CGrenadeThrower : MonoBehaviour {
 	public float ThrowForce;
 	public Vector3 ThrowOffsetAngle;
 
-	public virtual float CooldownTimer { get; private set; }
+	private float cooldownTimer;
+	public float CooldownTimer {
+		get { return cooldownTimer; }
+		private set { cooldownTimer = value; }
+	}
 
 	void FixedUpdate () {
 		CooldownTimer -= Time.deltaTime;
