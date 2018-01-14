@@ -8,7 +8,7 @@ public class CGrenadeThrower : MonoBehaviour {
 	// how long it takes before grenade refreshes
 	public float Cooldown;
 	public float ThrowForce;
-	public Vector3 ThrowOffsetAngle;
+	public float VerticalAngle;
 
 	private float cooldownTimer;
 	public float CooldownTimer {
@@ -20,12 +20,12 @@ public class CGrenadeThrower : MonoBehaviour {
 		CooldownTimer -= Time.deltaTime;
 	}
 
-	public void Throw (Vector3 position, Vector3 direction) {
+	public void Throw (Transform spawningTransform, Vector3 offset) {
 		if (CooldownTimer <= 0) {
 			CooldownTimer = Cooldown;
 			Debug.Log("PUT GRENADE THROW ANIMATION HERE");
-			var g = Instantiate(GrenadePrefab, position, Quaternion.identity);
-			Vector3 forceDir = (Quaternion.Euler(ThrowOffsetAngle) * direction).normalized;
+			var g = Instantiate(GrenadePrefab, spawningTransform.TransformPoint(offset), Quaternion.identity);
+			Vector3 forceDir = (Quaternion.AngleAxis(VerticalAngle, spawningTransform.right) * spawningTransform.forward).normalized;
 			g.AddForce(forceDir * ThrowForce, ForceMode.Impulse);
 		}
 	}

@@ -49,7 +49,8 @@ public class WeaponManager : MonoBehaviour {
 	}
 
 	public void ThrowGrenade() {
-		grenade.Throw(transform.position, transform.forward);
+		Vector3 offset = new Vector3(0, 0, 0.6f);
+		grenade.Throw(Head, offset);
 	}
 
 	public void Reload() {

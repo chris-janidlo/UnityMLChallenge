@@ -186,7 +186,8 @@ MonoBehaviour:
   MainWeapons:
   - {fileID: 114715001658194480, guid: 140e35cc0b29d4e22a2a158e4231a128, type: 2}
   - {fileID: 114306505073337888, guid: ce28a3231c21b44999190dff6ceaf052, type: 2}
-  WeaponLocation: {x: 0.1, y: 0.8, z: 0.5}
+  AutoReload: 1
+  WeaponLocation: {x: 0.1, y: -0.1, z: 0.5}
   Head: {fileID: 1129972318}
 --- !u!114 &89053832
 MonoBehaviour:
@@ -224,7 +225,7 @@ MonoBehaviour:
     type: 2}
   Cooldown: 5
   ThrowForce: 2
-  ThrowOffsetAngle: {x: -40, y: 0, z: 0}
+  VerticalAngle: -40
 --- !u!54 &89053834
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -568,10 +569,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brainParameters:
     stateSize: 0
-    actionSize: 5
+    actionSize: 9
     memorySize: 0
     cameraResolutions: []
     actionDescriptions:
+    - 
+    - 
+    - 
+    - 
     - 
     - 
     - 
@@ -602,30 +607,42 @@ MonoBehaviour:
   - key: 119
     index: 0
     value: 1
+  - key: 97
+    index: 1
+    value: -1
   - key: 115
     index: 0
     value: -1
   - key: 100
     index: 1
     value: 1
-  - key: 97
-    index: 1
-    value: -1
-  - key: 32
-    index: 2
-    value: 1
   - key: 273
-    index: 4
-    value: 1
-  - key: 275
     index: 3
     value: 1
   - key: 274
-    index: 4
-    value: -1
-  - key: 276
     index: 3
     value: -1
+  - key: 275
+    index: 2
+    value: 1
+  - key: 276
+    index: 2
+    value: -1
+  - key: 32
+    index: 4
+    value: 1
+  - key: 304
+    index: 5
+    value: 1
+  - key: 114
+    index: 6
+    value: 1
+  - key: 113
+    index: 7
+    value: 1
+  - key: 101
+    index: 8
+    value: 1
   discretePlayerActions: []
   defaultAction: 0
   brain: {fileID: 1257416298}
